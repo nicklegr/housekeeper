@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require "clockwork"
+require "holiday_japan"
 require "yaml"
 require "open-uri"
 require "pp"
@@ -52,18 +53,25 @@ class Bot
     @fhc = FHC.new
   end
 
+  def business_day?
+    !(Time.now.saturday? || Time.now.sunday? || HolidayJapan.check(Time.now))
+  end
+
   def wakeup
+    return unless business_day?
     @fhc.aircon_heating
     @fhc.kotatsu_on
     @fhc.light_toggle
   end
 
   def go_out
+    return unless business_day?
     @fhc.aircon_off
     @fhc.kotatsu_off
   end
 
   def before_come_home
+    return unless business_day?
     @fhc.aircon_heating
   end
 end

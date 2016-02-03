@@ -8,6 +8,7 @@ GEM
       activesupport
       tzinfo
     coderay (1.1.0)
+    holiday_japan (1.2.2)
     i18n (0.6.9)
     method_source (0.8.2)
     multi_json (1.10.1)
@@ -23,6 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   clockwork
+  holiday_japan
   pry
 
 BUNDLED WITH
