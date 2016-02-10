@@ -82,7 +82,7 @@ module Clockwork
     bot.send(job.to_sym)
   end
 
-  every(1.day, "wakeup", :at => "08:45")
+  every(1.day, "wakeup", :at => "08:30")
   every(1.day, "go_out", :at => "09:45")
   every(1.day, "before_come_home", :at => "18:45")
 end
