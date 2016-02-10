@@ -15,6 +15,7 @@ class FHC
 
   def get(query)
     open("http://#{@addr}/api/elec/action?webapi_apikey=#{@api_key}&#{query}").read
+    sleep 1
   end
 
   def aircon_heating
